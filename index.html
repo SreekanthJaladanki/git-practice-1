@@ -1,20 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DevOps Learning Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(94, 129, 244, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #5e81f4 0%, #1fc8db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a0aec0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* Cards Section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(94, 129, 244, 0.5);
+            box-shadow: 0 20px 40px rgba(94, 129, 244, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1fc8db;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .member {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 2.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .member:hover {
+            background: rgba(94, 129, 244, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #5e81f4 0%, #1fc8db 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(94, 129, 244, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to DevOps Session</h1>
-    <h2>this is Kiran </h2>
-    <h2>This is another Subheading</h2>
-    <p>This is a paragraph under the second subheading.</p>
-    <p>This is a new paragraph.</p>
-    <button>Click Me</button>
+    <div class="container">
+        <header>
+            <h1>🚀 DevOps Learning Hub</h1>
+            <p class="subtitle">Mastering Modern Development & Operations Together</p>
+        </header>
+
+        <section class="cards-grid">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>CI/CD Pipelines</h3>
+                <p>Learn to automate your build, test, and deployment processes for faster and more reliable software
+                    delivery.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3>Containerization</h3>
+                <p>Master Docker and Kubernetes to create portable, scalable applications that run anywhere.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Monitoring & Logging</h3>
+                <p>Implement robust monitoring solutions to keep your systems healthy and performant.</p>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>👥 Our Team</h2>
+            <div class="team-members">
+                <div class="member">Kiran</div>
+                <div class="member">Sanjana</div>
+                <div class="member">Prakruthi</div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <button class="btn" onclick="showWelcome()">Start Learning Today</button>
+        </section>
+
+        <footer>
+            <p>© 2026 DevOps Learning Hub | Git Practice Project</p>
+        </footer>
+    </div>
 
     <script>
-        console.log('Hello from the script!');
+        console.log('🚀 DevOps Learning Hub loaded successfully!');
+
+        function showWelcome() {
+            alert('Welcome to the DevOps Learning Hub! 🎉\nLet\'s start your DevOps journey together!');
+        }
+
+        // Add subtle parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
+
+            cards.forEach(card => {
+                card.style.transform = `translateY(0) rotateX(${y}deg) rotateY(${x}deg)`;
+            });
+        });
     </script>
 </body>
+
 </html>
